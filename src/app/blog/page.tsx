@@ -15,7 +15,7 @@ export default function BlogPage() {
   return (
     <div className="pt-24 pb-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeading title="Latest Articles" subtitle="Blog" />
+        <SectionHeading title="Latest Articles" subtitle="My Blogs" />
 
         <div className="mt-10 flex flex-wrap justify-center gap-2">
           {blogCategories.map((cat) => (
@@ -24,8 +24,8 @@ export default function BlogPage() {
               onClick={() => setFilter(cat)}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
                 filter === cat
-                  ? "bg-gradient-to-r from-sky-500 to-violet-500 text-white shadow-lg shadow-sky-500/20"
-                  : "bg-[var(--input-bg)] text-[var(--text-muted)] hover:bg-[var(--surface-hover)] border border-[var(--border)]"
+                  ? "bg-linear-to-r from-sky-500 to-violet-500 text-white shadow-lg shadow-sky-500/20"
+                  : "bg-(--input-bg) text-(--text-muted) hover:bg-(--surface-hover) border border-(--border)"
               }`}
             >
               {cat}
@@ -40,20 +40,20 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative rounded-2xl overflow-hidden border border-[var(--border)] bg-[var(--card-bg)] hover:border-sky-500/20 transition-all duration-500"
+              className="group relative rounded-2xl overflow-hidden border border-(--border) bg-(--card-bg) hover:border-sky-500/20 transition-all duration-500"
             >
-              <div className="aspect-video bg-gradient-to-br from-sky-500/10 to-violet-500/10 flex items-center justify-center">
-                <span className="text-4xl font-bold text-[var(--text-heading)]/10">{post.title[0]}</span>
+              <div className="aspect-video bg-linear-to-br from-sky-500/10 to-violet-500/10 flex items-center justify-center">
+                <span className="text-4xl font-bold text-(--text-heading)/10">{post.title[0]}</span>
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xs px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20">{post.category}</span>
-                  <span className="flex items-center gap-1 text-xs text-[var(--text-muted)]">
+                  <span className="flex items-center gap-1 text-xs text-(--text-muted)">
                     <Clock className="h-3 w-3" /> {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-base font-semibold text-[var(--text-heading)] mb-2 group-hover:text-sky-400 transition-colors line-clamp-2">{post.title}</h3>
-                <p className="text-sm text-[var(--text-muted)] line-clamp-3">{post.excerpt}</p>
+                <h3 className="text-base font-semibold text-(--text-heading) mb-2 group-hover:text-sky-400 transition-colors line-clamp-2">{post.title}</h3>
+                <p className="text-sm text-(--text-muted) line-clamp-3">{post.excerpt}</p>
                 <div className="mt-4 flex items-center gap-1 text-xs text-sky-400 font-medium">
                   Read More <ArrowUpRight className="h-3 w-3" />
                 </div>

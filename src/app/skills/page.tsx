@@ -21,7 +21,7 @@ export default function SkillsPage() {
   return (
     <div className="pt-24 pb-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeading title="Skills & Expertise" subtitle="My Toolkit" />
+        <SectionHeading title="Skills & Expertise" subtitle="Tech Stack" />
 
         <div className="mt-12 flex flex-wrap justify-center gap-2">
           {categories.map((cat) => (
@@ -30,8 +30,8 @@ export default function SkillsPage() {
               onClick={() => setActive(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 active === cat
-                  ? "bg-gradient-to-r from-sky-500 to-violet-500 text-white shadow-lg shadow-sky-500/20"
-                  : "bg-[var(--input-bg)] text-[var(--text-muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--text)] border border-[var(--border)]"
+                  ? "bg-linear-to-r from-sky-500 to-violet-500 text-white shadow-lg shadow-sky-500/20"
+                  : "bg-(--input-bg) text-(--text-muted) hover:bg-(--surface-hover) hover:text-(--text) border border-(--border)"
               }`}
             >
               {cat}
@@ -48,23 +48,23 @@ export default function SkillsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.05, duration: 0.4 }}
-                className="group rounded-xl border border-[var(--border)] bg-[var(--card-bg)] p-5 hover:border-sky-500/20 transition-all duration-300"
+                className="group rounded-xl border border-(--border) bg-(--card-bg) p-5 hover:border-sky-500/20 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-sky-500/10 text-sky-400">
                     <Icon className="h-4 w-4" />
                   </div>
-                  <span className="text-sm font-medium text-[var(--text-heading)]">{skill.name}</span>
+                  <span className="text-sm font-medium text-(--text-heading)">{skill.name}</span>
                 </div>
-                <div className="h-2 w-full rounded-full bg-[var(--input-bg)] overflow-hidden">
+                <div className="h-2 w-full rounded-full bg-(--input-bg) overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={inView ? { width: `${skill.level}%` } : {}}
                     transition={{ delay: i * 0.05 + 0.3, duration: 0.8, ease: "easeOut" }}
-                    className="h-full rounded-full bg-gradient-to-r from-sky-500 to-violet-500"
+                    className="h-full rounded-full bg-linear-to-r from-sky-500 to-violet-500"
                   />
                 </div>
-                <p className="mt-2 text-xs text-[var(--text-muted)]">{skill.level}%</p>
+                <p className="mt-2 text-xs text-(--text-muted)">{skill.level}%</p>
               </motion.div>
             );
           })}
